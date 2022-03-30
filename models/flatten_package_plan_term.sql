@@ -1,6 +1,6 @@
 {{config(
   schema = "DATA_PIPELINE",
-  materialized = "view"
+  materialized = "table"
 )}}
 {% set term_query %}
 select distinct
