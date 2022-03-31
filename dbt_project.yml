@@ -13,4 +13,4 @@ clean-targets: [target, dbt_packages]
 models:
   default:
     example: {+materialized: view}
-quoting: {identifier: true, schema: true, database: false}
+quoting: {identifier: true, database: false, schema: true}
