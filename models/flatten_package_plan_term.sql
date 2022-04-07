@@ -32,7 +32,7 @@ WITH AGENT_DEMOGRAPHICS as (
     "STATUS" AS "STATUS",
     "SITE" AS "SITE"
   FROM
-    {{ ref('AGENT_DEMOGRAPHICS_MQT_DBT') }}
+    {{ ref('agent_demographics_mqt_dbt') }}
 )
 select
 "PACKAGE", "PLAN_NAME", 
