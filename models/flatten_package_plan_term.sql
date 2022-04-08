@@ -1,6 +1,6 @@
 {{config(
   schema = "DATA_PIPELINE",
-  materialized = "view"
+  materialized = "table"
 )}}
 {% set term_query %}
 select distinct
@@ -28,11 +28,11 @@ WITH AGENT_DEMOGRAPHICS as (
     "BILLING_METHOD" AS "BILLING_METHOD",
     "AGN_KEY" AS "AGN_KEY",
     "ACTIVATION_SOURCE" AS "ACTIVATION_SOURCE",
-    "VENDOR" AS "VENDOR",
-    "STATUS" AS "STATUS",
-    "SITE" AS "SITE"
+    "AGENT_VENDOR" AS "VENDOR",
+    "AGENT_STATUS" AS "STATUS",
+    "AGENT_SITE" AS "SITE"
   FROM
-    {{ ref('AGENT_DEMOGRAPHICS_MQT_DBT') }}
+    {{ ref('agent_demographics_mqt_dbt') }}
 )
 select
 "PACKAGE", "PLAN_NAME", 
