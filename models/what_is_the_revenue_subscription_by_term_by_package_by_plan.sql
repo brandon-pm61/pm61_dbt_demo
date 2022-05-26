@@ -40,9 +40,22 @@ group_by_step3 as (
     join_step2."PACKAGE",
     join_step2."PLAN_NAME"
 )
-SELECT
-  *
-FROM
-  group_by_step3
-LIMIT
-  750
+{%- set lens = ["Annual", "Semi Annual", "Monthly", "Two Year", "Quarterly", "5 Months", "3 Year", "5 Year", "Lifetime", "2 Months", "4 Months", "TBD"] -%}
+
+select
+
+"PACKAGE", "PLAN_NAME", 
+
+{%- for len in lens %}
+
+sum(case when len = '{{len}}' then revenue end) 
+
+as TERM_{{dbt_utils.slugify(len)}}
+
+{%- if not loop.last %},{% endif -%}
+
+{% endfor %}
+
+from group_by_step3
+
+group by 1, 2
