@@ -12,7 +12,7 @@ renamed as (
 
     select
         permanent_facility_id, 
-        age_group VARCHAR, 
+        age_group, 
         zip_code_3_digits, 
         gender, 
         race, 
