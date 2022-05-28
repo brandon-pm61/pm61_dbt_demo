@@ -1,3 +1,8 @@
+{{config(
+	catalog = "snowflake",
+	schema = "destination",
+	materialized = "view"
+)}}
 with inpatient_discharge_procedures as (
 
     select * from {{ ref('stg_inpatient_discharge_procedures') }}
