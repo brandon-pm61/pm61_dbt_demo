@@ -35,7 +35,7 @@ renamed as (
 		emergency_department_indicator,
 		total_charges,
 		total_costs,
-		ratio_of_total_costs_to_total_charges,
+		ratio_of_total_costs_to_total_charges
 
     from source
 
